@@ -6,8 +6,8 @@ This is a small repo to gather weather data that's transmitted over MQTT. Once w
 1. Clone the repo.
 2. Run an `npm install`.
 3. Copy the filepath that routes to your `weather-hat-mqtt-to-max/index.js`.
-4. Open Max for Max for Live (Max/Msp) and create a `node.script` object.
-5. Paste the filepath right after the "node.script" line on your object.
+4. Open Max for Live (Max/Msp) and create a `node.script` object.
+5. Paste the filepath right after the "node.script" line on your object so that node.script can find our Nodejs entry point.
 6. Run a message box into the `node.script` object inlet that says `script start`.
 7. Run a message box into the `node.script` object inlet that says `connect`.
 8. Run a message box into the `node.script` object inlet that says `subscribe`.
