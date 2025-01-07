@@ -15,6 +15,7 @@ maxApi.addHandler('connect', () => {
 });
 
 maxApi.addHandler('subscribe', () => {
+  console.log('Top of subscribe handler');
   client.subscribe('weather');
 
   client.on('message', (topic, message) => {
