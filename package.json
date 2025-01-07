@@ -1,0 +1,14 @@
+{
+  "name": "weather-hat-mqtt-to-max",
+  "version": "1.0.0",
+  "description": "Gather MQTT data from Weather Hat on a Raspberry Pi and send to Max for Live.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brett Cimbalik",
+  "license": "ISC",
+  "dependencies": {
+    "mqtt": "^5.10.3"
+  }
+}
