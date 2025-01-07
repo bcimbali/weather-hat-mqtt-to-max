@@ -17,3 +17,6 @@ This is a small repo to gather weather data that's transmitted over MQTT. Once w
 - "subscribe"
 10. You should now see data coming thru from the bottom-left outlet on your `node.script` object. 
 11. If you want to clean up how the data looks, add an `unpack f f f f f f f f` Max object and connect individual message boxes to separate out the individual values (e.g. "temperature", "Humidity", etc.).
+
+
+![WeatherHat MQTT to Max](/images/weather_hat_node_to_max_for_live.png "WeatherHat MQTT to Max screengrab")
