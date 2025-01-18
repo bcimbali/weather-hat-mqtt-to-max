@@ -21,6 +21,7 @@ maxApi.addHandler('subscribe', () => {
   client.on('message', (topic, message) => {
     // Parse the MQTT message:
     const parsedMessage = JSON.parse(message?.toString());
+    console.log('In index.js, this is parsedMessage: ', parsedMessage);
 
     // Grab individual weather hat values:
     const temperature = parsedMessage?.temperature;
@@ -29,8 +30,8 @@ maxApi.addHandler('subscribe', () => {
     const relativeHumidity = parsedMessage?.relative_humidity;
     const dewpoint = parsedMessage?.dewpoint;
     const light = parsedMessage?.light;
-    const windspeed = parsedMessage?.windspeed;
-    const windDirection = parsedMessage?.windDirection;
+    const windspeed = parsedMessage?.wind_speed;
+    const windDirection = parsedMessage?.wind_direction;
     
     // Send out to Max as a list of floating point numbers:
     maxApi.outlet(temperature, pressure, humidity, relativeHumidity, dewpoint, light, windspeed, windDirection );
