@@ -46,6 +46,13 @@ maxApi.addHandler("subscribe", () => {
       humidityToString?.[humidityToString?.length - 3]
     );
 
+    // Wind Speed:
+    const windSpeedToString = parsedMessage?.wind_speed?.toString();
+    const lastIdxOfWindSpeed = parseInt(windSpeedToString?.slice(-1));
+    const secondToLastIdxofWindSpeed = parseInt(
+      windSpeedToString?.[windSpeedToString?.length - 2]
+    );
+    
     // console.log('In index.js, this is parsedMessage: ', parsedMessage);
 
     // Grab individual weather hat values:
@@ -73,7 +80,9 @@ maxApi.addHandler("subscribe", () => {
       secondToLastIdxofPressure,
       lastIdxOfHumidity,
       secondToLastIdxofHumidity,
-      thirdToLastIdxofHumidity
+      thirdToLastIdxofHumidity,
+      lastIdxOfWindSpeed,
+      secondToLastIdxofWindSpeed
     );
   });
 });
