@@ -6,6 +6,7 @@ let client;
 maxApi.addHandler("connect", () => {
   console.log("Top of connect addHandler");
   // Works fine & we can hardcode it for now:
+  // mqtt://10.0.0.116:1883
   client = mqtt.connect("mqtt://raspberrypi.local:1883");
 
   client.on("connect", () => {
@@ -53,6 +54,13 @@ maxApi.addHandler("subscribe", () => {
       windSpeedToString?.[windSpeedToString?.length - 2]
     );
     
+    // Light:
+    const lightToString = parsedMessage?.light?.toString();
+    const thirdIdxOfLight = parseInt(lightToString?.[3]) || 0;
+    const fourthIdxofLight = parseInt(
+      lightToString?.[4]
+    ) || 3;
+    
     // console.log('In index.js, this is parsedMessage: ', parsedMessage);
 
     // Grab individual weather hat values:
@@ -63,7 +71,7 @@ maxApi.addHandler("subscribe", () => {
     const dewpoint = parsedMessage?.dewpoint;
     const light = parsedMessage?.light;
     const windspeed = parsedMessage?.wind_speed;
-    const windDirection = parsedMessage?.wind_direction;
+    // const windDirection = parsedMessage?.wind_direction;
 
     // Send out to Max as a list of floating point numbers:
     maxApi.outlet(
@@ -82,7 +90,9 @@ maxApi.addHandler("subscribe", () => {
       secondToLastIdxofHumidity,
       thirdToLastIdxofHumidity,
       lastIdxOfWindSpeed,
-      secondToLastIdxofWindSpeed
+      secondToLastIdxofWindSpeed,
+      thirdIdxOfLight,
+      fourthIdxofLight
     );
   });
 });
